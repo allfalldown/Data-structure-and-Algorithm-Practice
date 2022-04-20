@@ -7,9 +7,8 @@
 using namespace std;
 
 struct Node{
-    int info;
-    struct Node* pNext;
-    struct Node* pPrev;
+    int data;
+    Node *next;
 };
 
 struct BigInt{
@@ -17,12 +16,31 @@ struct BigInt{
     Node *pTail;
 };
 
-Node *GetNode(int x);
-void Init(BigInt &bi);
+//preprocess
+Node* newNode(int data);
 void AddTail(BigInt &bi, Node *p);
+void push(Node** head_ref, int new_data);
+void Init(BigInt &bi);
 void Input(const char* filename, BigInt &bi1, BigInt &bi2);
 void RandomBigInt(int n, int m, const char* filename);
-void Output(BigInt bi);
-BigInt Add(BigInt bi1, BigInt bi2);
-BigInt Minus(BigInt bi1, BigInt bi2);
-BigInt Multiply(BigInt bi1, BigInt bi2);
+
+//sum
+Node* addTwoLists(Node* first, Node* second);
+Node* reverse(Node* head);
+
+
+//minus
+int getLength(Node* Node);
+Node* paddZeros(Node* sNode, int diff);
+Node* subtractLinkedListHelper(Node* l1, Node* l2, bool& borrow);
+Node* subtractLinkedList(Node* l1, Node* l2);
+void modify(Node *l1, Node *l2, Node *res);
+void display(Node* Node);
+
+//multify
+Node* make_empty_list(int size);
+int reverse1(struct Node** head_ref);
+Node* multiplyTwoLists(Node* first, Node* second);
+
+
+
